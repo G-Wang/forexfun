@@ -15,7 +15,7 @@ import pandas as pd
 from event import OrderEvent
 from performance import create_drawdowns
 from position import Position
-from settings import OUTPUT_RESULTS_DIR
+OUTPUT_RESULTS_DIR = "output_results"
 
 
 class Portfolio(object):
@@ -79,7 +79,7 @@ class Portfolio(object):
 
     def create_equity_file(self):
         filename = "backtest.csv"
-        out_file = open(os.path.join('output_results', filename), "w")
+        out_file = open(os.path.join(OUTPUT_RESULTS_DIR, filename), "w")
         header = "Timestamp,Balance"
         for pair in self.ticker.pairs:
             header += ",%s" % pair
